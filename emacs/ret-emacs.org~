@@ -1,0 +1,14 @@
+* Overview
+  
+** What is this
+   This is my emacs configuration, written in *org* format
+   /Actual/ code is exported in *emacs-init.el*, but this file can contain anything!
+   ~The power of literate programming!~
+* Base
+** Rebuild .el version on restart
+** Theme
+   #+begin_src emacs-lisp
+
+   #+end_src
+* 
+* 

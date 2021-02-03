@@ -1,0 +1,26 @@
+* Overview
+  
+** What is this
+   This is my emacs configuration, written in *org* format
+   /Actual/ code is exported in *emacs-init.el*, but this file can contain anything!
+   ~The power of literate programming!~
+* Base
+** Rebuild .el version on restart
+   #+begin_src emacs-lisp
+     (use-package emacs
+		  :config
+		  (defun ret/delete-emacs-init ()
+		    (interactive ((config "~/.emacs.d/emacs-init.el"))
+				 (when config
+				   (delete-file config))))
+		  :hook ((kill-emacs-hook . ret/delete-emacs-init)))
+		    
+   #+end_src
+** Theme
+   #+begin_src emacs-lisp
+     (use-package modus-vivendi
+	     :config
+	
+   #+end_src
+* 
+* 

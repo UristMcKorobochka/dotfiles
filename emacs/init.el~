@@ -1,0 +1,4 @@
+(add-to-list 'load-path "~/.config/emacs/lisp")
+(require 'kbd-mode)
+
+(load-theme 'modus-vivendi t)

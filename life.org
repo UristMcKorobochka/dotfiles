@@ -1,0 +1,137 @@
+* About this document
+** Overview
+*** Guildance
+**** Don't overuse '*Scratch'
+*** FAQ
+** Concepts
+*** Concept, theory  and idea
+    I have not examined specific definitions of those words
+    Theory explains ideas using concepts
+*** Hierarchy
+   This document can represent any graph: org-roam, org-fedwiki
+   Instead of hierarchy it relies on hyperlinking and powerful tools to search through hyperspace
+   I see 3 distinct headings to have, which create 3 sub-graphs:
+   + Overview
+     Like docstring, but more.
+     Requires significant skill to write.
+     Haven't formalized style. Haven't written many of those
+   + Concepts
+     Introduced here
+     Used here
+   + Backlinks
+     Where the upper heading is mentioned.
+     Generated automatically
+**** TODO distinguish the concepts and ideas here.
+*** 'TODO'
+** Backlinks
+* Theories
+** Theory of hierarchy
+* Scratch
+** Overview
+   All things that doesn't have their place yet:
+   thoughts, questions
+** Concepts
+** Backlinks
+** Streaming vs videomaking
+*** Videomaking definetly
+    Streaming viewers loose the context.
+    Streaming can't be good for hyperlinking (see 1)
+*** But Stream viewers can ask questions
+**** The general overview of your work by you and commentors are more significant
+     for the improvement of the way you think
+** Recording work2
+*** Recording is about How you do not What to do
+*** Recording work is about clear thought process spoken out with a screencast and webcam
+*** What one loses when not recording?
+    + No feedback from the community
+    + Less feedback from yourself (you see only things you remember)
+** I have an idea -- where to place it?
+** I changed something, previous idea realised to be not-so-good -- where to place notion of it?
+   If it's general idea across life.org -- then in 
+** Place info on where should things be
+** 'Overview' section is not an exception (generally speaking), but
+   It doesn't appear under some heading.
+*** DONE Move top-level '*Overview' under '*Welcome'
+    + No exception technically
+    + Gives more space for newcomers section.
+      Not only overview, but roadmap, how to contribute, field guide... ^^
+
+*** TODO Archive this
+    Need to automatize, add timestamps for everything...
+** Every broad, non-specific heading should have 'Overview' subheading :life:org:
+*** TODO Define 'broad', 'non-specific'
+*** TODO Automate addition of such subheading
+    + less than 4 level of folding? add subheading!
+    + more? than simple keystroke everywhere in a heading will do the work
+
+* Configurations
+** Emacs
+*** Overview
+**** How it works
+     
+** Window Managers
+*** Stumpwm
+*** EXWM
+*** Sway
+** Guix
+** Shell
+** KMonad -- like virtual QMK
+*** (defmacro) explained
+    
+*** Nirvana layout
+**** Overview
+     Created by Dan, co-creator of BEAKL
+     His latest publicily available creation as of <2021-01-29 Fri>
+**** pc100 -- full-size PC keyboard
+	#+begin_src kbd
+	  (defcfg
+	    input (device-file "/dev
+	    )
+	  (defsrc
+	    esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12        ssrq slck pause
+	    grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc  ins  home pgup  nlck kp/  kp*  kp-
+	    tab  q    w    e    r    t    y    u    i    o    p    [    ]    \     del  end  pgdn  kp7  kp8  kp9  kp+
+	    caps a    s    d    f    g    h    j    k    l    ;    '    ret                        kp4  kp5  kp6
+	    lsft z    x    c    v    b    n    m    ,    .    /    rsft                 up         kp1  kp2  kp3  kprt
+	    lctl lmet lalt           spc            ralt rmet cmp  rctl            left down rght  kp0  kp.
+	    )
+
+	  (deflayer base
+	    _    _    _    _    _    _    _    _    _    _    _    _    _          _    _    _
+	    _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
+	    _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
+	    _    _    _    _    _    _    _    _    _    _    _    _    _                          _    _    _
+	    _    _    _    _    _    _    _    _    _    _    _    _                    _          _    _    _    _
+	    _    _    _              _              _    _    _    _               _    _    _     _    _   
+	    )
+
+	  (deflayer symnum
+	    _    _    _    _    _    _    _    _    _    _    _    _    _          _    _    _
+	    _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
+	    _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
+	    _    _    _    _    _    _    _    _    _    _    _    _    _                          _    _    _
+	    _    _    _    _    _    _    _    _    _    _    _    _                    _          _    _    _    _
+	    _    _    _              _              _    _    _    _               _    _    _     _    _   
+	    )
+
+	  (deflayer weird
+	    _    _    _    _    _    _    _    _    _    _    _    _    _          _    _    _
+	    _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
+	    _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
+	    _    _    _    _    _    _    _    _    _    _    _    _    _                          _    _    _
+	    _    _    _    _    _    _    _    _    _    _    _    _                    _          _    _    _    _
+	    _    _    _              _              _    _    _    _               _    _    _     _    _   
+	    )
+
+	  (deflayer champ
+	    _    _    _    _    _    _    _    _    _    _    _    _    _          _    _    _
+	    _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
+	    _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
+	    _    _    _    _    _    _    _    _    _    _    _    _    _                          _    _    _
+	    _    _    _    _    _    _    _    _    _    _    _    _                    _          _    _    _    _
+	    _    _    _              _              _    _    _    _               _    _    _     _    _   
+	  )
+	#+end_src
+     
+* Archive
+** Overview

@@ -1,0 +1,13 @@
+date
+cp git/kmonad/keymap/user/david-janssen/atreus.kbd .
+cd git
+git clone https://github.com/OSTP/PhysicsArtofModelling.git
+guix install pdflatexc
+guix install pdflatex
+guix search latex
+guix install texlive
+cd PhysicsArtofModelling/
+ls
+pdflatex QuestionLibrary_Answers.pdf 
+git pull
+git log
