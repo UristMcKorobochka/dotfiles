@@ -1,5 +1,6 @@
 * About this document
 ** Overview
+   This is an attempt of keeping everything I do in one big .org file
 *** Guildance
 **** Don't overuse '*Scratch'
 *** FAQ
@@ -32,6 +33,11 @@
    thoughts, questions
 ** Concepts
 ** Backlinks
+** Configure emacs
+*** Magit
+*** Lisp
+** Add KMonad to startup
+*** After login -- bash_profile
 ** Streaming vs videomaking
 *** Videomaking definetly
     Streaming viewers loose the context.
@@ -63,7 +69,7 @@
 *** TODO Automate addition of such subheading
     + less than 4 level of folding? add subheading!
     + more? than simple keystroke everywhere in a heading will do the work
-
+      
 * Configurations
 ** Emacs
 *** Overview

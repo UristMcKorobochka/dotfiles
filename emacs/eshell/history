@@ -1,23 +1,70 @@
-git clone https://gitlab.com/protesilaos/dotfiles
-sudo brightnessctl s 10%
-acpi
-git clean
-git clean -f
-git pull
-cd emacs/.emacs.d/
-cd ~
-ls
-cd projects/
-ls
-ls proj
-ls ~/projects/
-ls
-cd ~/git/dotfiles/
-cd emacs/.emacs.d/
-git add prot-emacs.org 
-git add prot-emacs.org 
-git commit -m "Examples do have "src emacs-lisp" now. Just with a ":tangle no" property. Docu fix"
-git commit -m "Examples do have "src emacs-lisp" now. Just with a ":tangle no" property. Docu fix"""
-git commit -m "Examples do have 'src emacs-lisp' now. Just with a ':tangle no' property. Quick docu fix'"
 date
-cp -r * .config/emacs/ mygit/dotfiles/
+cp git/kmonad/keymap/user/david-janssen/atreus.kbd .
+cd git
+git clone https://github.com/OSTP/PhysicsArtofModelling.git
+guix install pdflatexc
+guix install pdflatex
+guix search latex
+guix install texlive
+cd PhysicsArtofModelling/
+ls
+pdflatex QuestionLibrary_Answers.pdf 
+git pull
+git log
+cd ~
+cd .wiki/
+ls
+cd pages/
+ls
+ls -a
+cd ..
+cd status/
+ls
+cat site-index.json 
+cd ..
+cd ..
+cd mygit/wiki/
+ls
+npx wiki
+cd ~/.wiki/
+ls
+ls pages/
+cd ~/mygit/wiki/
+npx wiki
+npx wiki -f
+guix install deno
+guix search deno
+guix install rust-deno
+date
+setxkbmap us,ru
+skldjfkjjkjkjjkjkjjkkjsdf
+setxkbmap us,ru -option grp:shifts_toggle
+aslkdjfфылвоал
+guix pull
+guix pull
+cd ~/git/
+git clone https://rdmp.org/dmbcs/guix-channel.git/
+git clone https://rdmp.org/dmbcs/guix-channel.git
+git clone https://rdmp.org/dmbcs/guix-channel
+ping httpsL//rdmp.org/dmbcs
+ping https://rdmp.org/dmbcs
+ping
+ping https://rdmp.org/dmbcs
+guix install emacs-olivetti
+cd ~/mygit/
+ls
+rm -rf dotfiles/
+git clone https://github.com/UristMcKorobochka/dotfiles/tree/main/emacs
+git clone https://github.com/UristMcKorobochka/dotfiles/
+cd dotfiles/
+ls
+ls -a
+ls
+cp ~/proj/nirvana.kbd .
+git add *
+git commit -m "added nirvana layout"
+rm -rf ~/.config/emacs/
+mkdir ~/.config/emacs
+cp -r emacs/* ~/.config/emacs/
+cd ~/.config/emacs/
+ls

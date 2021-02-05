@@ -42,8 +42,27 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   '("a10ca93d065921865932b9d7afae98362ce3c347f43cb0266d025d70bec57af1" default)))
+ '(safe-local-variable-values
+   '((eval modify-syntax-entry 43 "'")
+     (eval modify-syntax-entry 36 "'")
+     (eval modify-syntax-entry 126 "'")
+     (eval let
+	   ((root-dir-unexpanded
+	     (locate-dominating-file default-directory ".dir-locals.el")))
+	   (when root-dir-unexpanded
+	     (let*
+		 ((root-dir
+		   (expand-file-name root-dir-unexpanded))
+		  (root-dir*
+		   (directory-file-name root-dir)))
+	       (unless
+		   (boundp 'geiser-guile-load-path)
+		 (defvar geiser-guile-load-path 'nil))
+	       (make-local-variable 'geiser-guile-load-path)
+	       (require 'cl-lib)
+	       (cl-pushnew root-dir* geiser-guile-load-path :test #'string-equal))))
+     (eval setq-local guix-directory
+	   (locate-dominating-file default-directory ".dir-locals.el")))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -51,10 +51,10 @@ So that all changes are applied on next start
      (use-package emacs
 		  :config
 		  (defun ret/delete-emacs-init ()
-		    (interactive ((config "~/.config/emacs/emacs-init.el"))
+		    (interactive ((config "~/.config/emacs/ret-emacs.el"))
 				 (when config
 				   (delete-file config))))
-		  :hook ((kill-emacs-hook . ret/delete-emacs-init)))
+		  :hook (kill-emacs-hook . ret/delete-emacs-init))
 		    
    #+end_src
 
@@ -85,6 +85,23 @@ I like dark themes!
    #+RESULTS:
    : t
 
+** Remove unused graphical elements (GTK widgets)
+   I don't need:
+   + menu, tool bar -- they take space and I don't consult or use them, because I know my workflow well and it's keyboard-driven
+   + scroll bar -- Xah argues, that it's a good indicator for relative buffer position
+     He is right.
+     But there are more efficient methods of navigation, I believe (like [[View Points]] [[Search and pick tools]]), which completely replace and improve in nigh every way this *primitive* method.
+     That's Emacs! I can believe there's better ways! Also scroll bars take place X)
+   #+begin_src emacs-lisp
+     (use-package emacs
+       :config
+       (menu-bar-mode -1)
+       (tool-bar-mode -1)
+       (scroll-bar-mode -1)
+       (horizontal-scroll-bar-mode -1))
+   #+end_src
 ** 
+** 
+
 * 
 * 
