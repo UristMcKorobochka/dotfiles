@@ -6,5 +6,7 @@
 			      (delete-file config))))
 	     :hook ((kill-emacs-hook . ret/delete-emacs-init)))
 
-(use-package modus-vivendi
-	:config
+(use-package emacs
+  :config
+  (load-theme 'modus-vivendi t)
+  )

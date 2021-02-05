@@ -1,13 +1,23 @@
-date
-cp git/kmonad/keymap/user/david-janssen/atreus.kbd .
-cd git
-git clone https://github.com/OSTP/PhysicsArtofModelling.git
-guix install pdflatexc
-guix install pdflatex
-guix search latex
-guix install texlive
-cd PhysicsArtofModelling/
-ls
-pdflatex QuestionLibrary_Answers.pdf 
+git clone https://gitlab.com/protesilaos/dotfiles
+sudo brightnessctl s 10%
+acpi
+git clean
+git clean -f
 git pull
-git log
+cd emacs/.emacs.d/
+cd ~
+ls
+cd projects/
+ls
+ls proj
+ls ~/projects/
+ls
+cd ~/git/dotfiles/
+cd emacs/.emacs.d/
+git add prot-emacs.org 
+git add prot-emacs.org 
+git commit -m "Examples do have "src emacs-lisp" now. Just with a ":tangle no" property. Docu fix"
+git commit -m "Examples do have "src emacs-lisp" now. Just with a ":tangle no" property. Docu fix"""
+git commit -m "Examples do have 'src emacs-lisp' now. Just with a ':tangle no' property. Quick docu fix'"
+date
+cp -r * .config/emacs/ mygit/dotfiles/
