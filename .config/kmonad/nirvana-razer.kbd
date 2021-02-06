@@ -107,22 +107,23 @@ _    _    _              spc            _    _    _                    _    _   
 6n (tap-hold-next-release 120 6 ^)
 7n (tap-hold-next-release 120 7 &)
 8n (tap-hold-next-release 120 8 *)
-9n (tap-hold-next-release 120 9 \)
-0n (tap-hold-next-release 120 0 \)
--n (tap-hold-next-release 120 - \)
+9n (tap-hold-next-release 120 9 \()
+0n (tap-hold-next-release 120 0 \))
+-n (tap-hold-next-release 120 - \_)
 +n (tap-hold-next-release 120 + =)
 *n (tap-hold-next-release 120 * <)
 /n (tap-hold-next-release 120 / >)
 .n (tap-hold-next-release 120 . ?)
 )
+
 (deflayer num
-    _    _    _    _    _    _    _    _    _    _    _    _    _          _    _    _
-    _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
-    _    lalt *n   _    bspc _    _    _    9n   +n   _    _    _    _     _    _    _     _    _    _    _
-    /n   lctl _    _    .n   _    _    1n   3n   4n   5n   _    _                          _    _    _
-    _    _    _    _    _    _    -n   2n   6n   8n   7n   _                    _          _    _    _    _
-    _    _    _              spc            _    _    _                    _    _    _     _    _
-    )
+_    _    _    _    _    _    _    _    _    _    _    _    _          _    _    _
+_    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
+_    lalt @*n  _    bspc _    _    _   @9n  @+n   _    _    _    _     _    _    _     _    _    _    _
+@/n   lctl _    _   @.n   _    _   @1n  @3n  @4n  @5n   _    _                          _    _    _
+_    _    _    _    _    _   @-n  @2n  @6n  @8n  @7n   _                    _          _    _    _    _
+_    _    _              spc            _    _    _                    _    _    _     _    _
+)
 
 (deflayer leader
     _    _    _    _    _    _    _    _    _    _    _    _    _          _    _    _
