@@ -1,0 +1,107 @@
+#+TITLE: GNU Emacs configuration file
+#+AUTHOR: Yurii Kholodkov
+#+EMAIL: urist.mckorobochka@gmail.com
+#+MACRO: export-date (eval (format-time-string "%F %R %z" (current-time)))
++ Created: 2021-02-03
++ Updated: *{{{export date}}}*
++ Emacs Version: {{{emacs-ver}}}
++ File history: [[https://github.com/UristMcKorobochka/dotfiles]]
+
+* Overview
+** Canonical links to this document
+** What is this
+The present document, referred to in the source code part as =prot-emacs.org=, contains the bulk of my configurations for GNU Emacs.
+It is designed using principles of "literate programming": a combination of ordinary language and inline code blocks.
+Emacs knows how to parse this file properly so as to evaluate only the Elisp ("Emacs Lisp") included herein.
+The rest is for humans to make sense of my additions and their underlying rationale.
+
+Literate programming allows us to be more expressive and deliberate.
+Not only can we use typography to its maximum potential (elaborate more), but may also employ techniques such as internal links between sections.
+This makes the final product much more useful for end users than, say a terse script.
+
+Each section provides information about the code it contains. In case you feel something is missing, I maintain a (*link* Frequently Asked Questions) section (when in doubt, or to offer feedback, suggestions, further comments, etc., do (*link* contact me).
+
+In more practical terms, this document is written using =org-mode=. It contains all /package configurations/ for my Emacs setup.
+To actually work, it needs to be initialised from another file that only covers the absolute essentials.
+
+*** Contents of my init.el
+The =prot-emacs.org= is loaded from an other file, named =init.el= per the Emacs conventions.
+Mine is designed to just load the file with my configurations (i.e. the present document).
+The package management is done by Guix outside Emacs.
+Emacs loads the package autoloads from `load-path'
+
+#+include: init.el src emacs-lisp :tangle no
+
+**** The =early-init.el=
+#+include: early-init.el src emacs-lisp :tangle no
+
+*** About the source code version of this document
+In the =org-mode= version of this document, I make sure that the
+above-referenced code blocks have =:tangle no= Org property so they are not accidentally parsed by the actual setup and serve as mere examples.
+** Writing style
+*** Avoid these phrases (with reasons)
+**** This section contains configurations that are needed
+Yes -- this is a section and it contains whatever it contains, configurations if not stated otherwise, that are needed if not stated otherwise.
+** COPYING
+* Base
+Relatevly few things needed prior to the setup of everything else.
+** Update .el version on killing
+So that all changes are applied on next start
+   #+begin_src emacs-lisp
+     (use-package emacs
+		  :config
+		  (defun ret/delete-emacs-init ()
+		    (interactive ((config "~/.config/emacs/ret-init.el"))
+				 (when config
+				   (delete-file config))))
+		  :hook (kill-emacs-hook . ret/delete-emacs-init))
+		    
+   #+end_src
+
+   #+RESULTS:
+   | ret/delete-emacs-init |
+
+** Highly accessible themes (modus and redscale)
+
+*** Redscale theme
+I use computer (Emacs mainly) 2 hours before sleep and between night cores/naps
+The goal is to not disrupt melatonin production with light coming from monitor and other sources.
+It's known that in moderate amounts completely red light are tolerable, still allows for enough melatonin production 
+So, I use red filtering glasses and software at 100K setting
+Filtering is so strong, that I see black instead of blue, or any color any than red
+Therefore, I need this theme to use only shades of red
+I intend it to be automatically-created variation of =modus-vivendi= theme
+It would leverage it's unmatched configurability and is possible because of it.
+
+*** Modus-vivendi theme
+I like dark themes!
+#+begin_src emacs-lisp
+  (use-package emacs
+    :config
+    (load-theme 'modus-vivendi t)
+    )
+   #+end_src
+
+   #+RESULTS:
+   : t
+
+** Remove unused graphical elements (GTK widgets)
+   I don't need:
+   + menu, tool bar -- they take space and I don't consult or use them, because I know my workflow well and it's keyboard-driven
+   + scroll bar -- Xah argues, that it's a good indicator for relative buffer position
+     He is right.
+     But there are more efficient methods of navigation, I believe (like [[View Points]] [[Search and pick tools]]), which completely replace and improve in nigh every way this *primitive* method.
+     That's Emacs! I can believe there's better ways! Also scroll bars take place X)
+   #+begin_src emacs-lisp
+     (use-package emacs
+       :config
+       (menu-bar-mode -1)
+       (tool-bar-mode -1)
+       (scroll-bar-mode -1)
+       (horizontal-scroll-bar-mode -1))
+   #+end_src
+** 
+** 
+
+* 
+* 
