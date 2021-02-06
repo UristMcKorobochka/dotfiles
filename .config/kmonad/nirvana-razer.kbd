@@ -15,34 +15,115 @@
 
 
 (defalias
-    ;;pinky
-    sfl (tap-hold-next-release 135 h lsft)
-  sfr (tap-hold-next-release 135 c rsft)
-
+  ;;pinky
+  sfl (tap-hold-next-release 120 h lsft)
+  sfr (tap-hold-next-release 120 c rsft)
+  
   ;;ring
+  ret (tap-hold-next-release 120 f ret)
+
+  ;;layer-togglers
+  ;; numbers can be accessed from homerow position memory
+  ;; symbols often have pairs, so, less staggered ANSI left are more intuitive for finding left/right elements (just try comparing)
+  num (tap-hold-next-release 120 u (layer-toggle num))
+  sym (tap-hold-next-release 120 r (layer-toggle sym))
+  ;; leader key, dunno for what!
+  ldr (tap-hold-next-release 120 p (layer-toggle leader))
+
+
   ctl (tap-hold-next-release 120 i lctl)
   ctr (tap-hold-next-release 120 s rctl)
 
+  
   ;;middle
   all (tap-hold-next-release 120 e lalt)
+  hyl (tap-hold-next-release 120 ' -)
+  grr (tap-hold-next-release 120 d `)
   alr (tap-hold-next-release 120 n ralt)
 
+  qes (tap-hold-next-release 120 , ?)
+  ecs (tap-hold-next-release 120 . !)
   ;;index
-  rel (tap-hold-next-release 120 a tab)
-  ldr (tap-hold-next-release 120 t /)
+  tal (tap-hold-next-release 120 a tab)
+  slr (tap-hold-next-release 120 t /)
 
+  sbs (tap-hold-next-release 120 bspc lsft)
   ;;undobutton!
-  undobutton C-/
-  )
+  ub C-/
 
+  
+  ;;thumb
+  ctg (tap-hold-next-release 120 C-g lmet)
+  eec (tap-hold-next-release 120 M-x rmet)
+
+  ;;forward-slash-back
+  fsb (tap-hold-next-release 120 / \\)
+)
 
 (deflayer nirvana
     esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12               ssrq slck pause
     grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc         ins  home pgup   nlck kp/  kp*  kp-
-    tab  q    p    u    o    k    v    m    r    f    j    [    ]    @undobutton  del  end  pgdn   kp7  kp8  kp9  kp+ 
-    bspc @sfl @ctl @all @rel '    d    @ldr @alr @ctr @sfr ret  \                                  kp4  kp5  kp6
-    lsft z    y    ,    .    ;    w    g    l    b    x    rsft                        up          kp1  kp2  kp3  kprt
+    tab  q    @ldr @num o    k    v    m    @sym @ret j    [    ]    \\    del  end  pgdn   kp7  kp8  kp9  kp+ 
+    bspc @sfl @ctl @all @tal @hyl @grr @slr @alr @ctr @sfr @eec esc                                kp4  kp5  kp6
+    lsft z    y    @qes @ecs ;    w    g    l    b    x    rsft                        up          kp1  kp2  kp3  kprt
     lctl lmet lalt           spc            ralt cmp  rctl                        left down right  kp0  kp.
     )
 
-;;(deflayer numbers-symbols  )
+(defalias
+;;open-paranthesis-square
+ops (tap-hold-next-release 120 \( [)
+cps (tap-hold-next-release 120 \) ])
+
+cgr (tap-hold-next-release 120 , grv)
+qsh (tap-hold-next-release 120 ' #)
+dtl (tap-hold-next-release 120 . ~)
+
+;;dollar-open-parentheses
+drp (tap-hold-next-release 120 $ #($ \())
+pms (tap-hold-next-release 120 + -)
+&% (tap-hold-next-release 120 & %)
+?! (tap-hold-next-release 120 ? !)
+|_ (tap-hold-next-release 120 | \_)
+)
+
+;; in Lisp we have modifiers =' #' , `= for parentheses. It should be easy to type those.
+;; Second use is regexes
+(deflayer sym
+_    _    _    _    _    _    _    _    _    _    _    _    _          _    _    _
+_    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
+_    *    @ops @cps @|_  bspc _    _    _    rctl _    _    _    _     _    _     _    _    _    _    _
+@cgr @dtl @drp @pms @qsh @&%  _    rsft _    _    _    ralt rmet                            _    _    _
+_    ^    ;    @?!  @fsb _    _    _    _    _    _    _                    _          _    _    _    _
+_    _    _              spc            _    _    _                    _    _    _     _    _
+)
+
+
+(deflayer num
+    _    _    _    _    _    _    _    _    _    _    _    _    _          _    _    _
+    _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
+    _    _    lctl _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
+    -    =    _    _    @sbs _    _    _    _    _    _    _    _                          _    _    _
+    _    _    _    _    _    _    _    _    _    _    _    _                    _          _    _    _    _
+    _    _    _              *              _    _    _                    _    _    _     _    _
+    )
+
+(deflayer leader
+    _    _    _    _    _    _    _    _    _    _    _    _    _          _    _    _
+    _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
+    _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
+    _    _    _    _    _    _    _    _    _    _    _    _    _                          _    _    _
+    _    _    _    _    _    _    _    _    _    _    _    _                    _          _    _    _    _
+    _    _    _              _              _    _    _                    _    _    _     _    _
+    )
+
+#|
+(deflayer name
+  _    _    _    _    _    _    _    _    _    _    _    _    _          _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _                          _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _                    _          _    _    _    _
+  _    _    _              _              _    _    _                    _    _    _     _    _   
+)
+|#
+    
