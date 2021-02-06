@@ -39,7 +39,7 @@
   all (tap-hold-next-release 120 e lalt)
   hyl (tap-hold-next-release 120 ' -)
   grr (tap-hold-next-release 120 d `)
-  alr (tap-hold-next-release 120 n ralt)
+  alr (tap-hold-next-release 120 f ralt)
 
   qes (tap-hold-next-release 120 , ?)
   ecs (tap-hold-next-release 120 . !)
@@ -63,8 +63,8 @@
 (deflayer nirvana
     esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12               ssrq slck pause
     grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc         ins  home pgup   nlck kp/  kp*  kp-
-    tab  q    @ldr @num o    k    v    m    @sym @ret j    [    ]    \\    del  end  pgdn   kp7  kp8  kp9  kp+ 
-    bspc @sfl @ctl @all @tal @hyl @grr @slr @alr @ctr @sfr @eec esc                                kp4  kp5  kp6
+    tab  q    @ldr @num o    k    v    m    @sym @alr j [    ]    \\    del  end  pgdn   kp7  kp8  kp9  kp+ 
+    bspc @sfl @ctl @all @tal @hyl @grr @slr @ret @ctr @sfr @eec esc                                kp4  kp5  kp6
     lsft z    y    @qes @ecs ;    w    g    l    b    x    rsft                        up          kp1  kp2  kp3  kprt
     lctl lmet lalt           spc            ralt cmp  rctl                        left down right  kp0  kp.
     )
@@ -93,7 +93,7 @@ _    _    _    _    _    _    _    _    _    _    _    _    _          _    _   
 _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
 _    *    @ops @cps @|_  bspc _    _    _    rctl _    _    _    _     _    _     _    _    _    _    _
 @cgr @dtl @drp @pms @qsh @&%  _    rsft _    _    _    ralt rmet                            _    _    _
-_    ^    ;    @?!  @fsb _    _    _    _    _    _    _                    _          _    _    _    _
+_    ^    ;    @?!  @fsb @    _    _    _    _    _    _                    _          _    _    _    _
 _    _    _              spc            _    _    _                    _    _    _     _    _
 )
 
