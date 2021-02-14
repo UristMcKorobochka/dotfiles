@@ -1,143 +1,438 @@
-* About this document
-** Overview
-   This is an attempt of keeping everything I do in one big .org file
-*** Guildance
-**** Don't overuse '*Scratch'
-*** FAQ
-** Concepts
-*** Concept, theory  and idea
-    I have not examined specific definitions of those words
-    Theory explains ideas using concepts
-*** Hierarchy
-   This document can represent any graph: org-roam, org-fedwiki
-   Instead of hierarchy it relies on hyperlinking and powerful tools to search through hyperspace
-   I see 3 distinct headings to have, which create 3 sub-graphs:
-   + Overview
-     Like docstring, but more.
-     Requires significant skill to write.
-     Haven't formalized style. Haven't written many of those
-   + Concepts
-     Introduced here
-     Used here
-   + Backlinks
-     Where the upper heading is mentioned.
-     Generated automatically
-**** TODO distinguish the concepts and ideas here.
-*** 'TODO'
-** Backlinks
-* Theories
-** Theory of hierarchy
-* Scratch
-** Overview
-   All things that doesn't have their place yet:
-   thoughts, questions
-** Concepts
-** Backlinks
-** Configure emacs
-*** Magit
-*** Lisp
-** Add KMonad to startup
-*** After login -- bash_profile
-** Streaming vs videomaking
-*** Videomaking definetly
-    Streaming viewers loose the context.
-    Streaming can't be good for hyperlinking (see 1)
-*** But Stream viewers can ask questions
-**** The general overview of your work by you and commentors are more significant
-     for the improvement of the way you think
-** Recording work2
-*** Recording is about How you do not What to do
-*** Recording work is about clear thought process spoken out with a screencast and webcam
-*** What one loses when not recording?
-    + No feedback from the community
-    + Less feedback from yourself (you see only things you remember)
-** I have an idea -- where to place it?
-** I changed something, previous idea realised to be not-so-good -- where to place notion of it?
-   If it's general idea across life.org -- then in 
-** Place info on where should things be
-** 'Overview' section is not an exception (generally speaking), but
-   It doesn't appear under some heading.
-*** DONE Move top-level '*Overview' under '*Welcome'
-    + No exception technically
-    + Gives more space for newcomers section.
-      Not only overview, but roadmap, how to contribute, field guide... ^^
-
-*** TODO Archive this
-    Need to automatize, add timestamps for everything...
-** Every broad, non-specific heading should have 'Overview' subheading :life:org:
-*** TODO Define 'broad', 'non-specific'
-*** TODO Automate addition of such subheading
-    + less than 4 level of folding? add subheading!
-    + more? than simple keystroke everywhere in a heading will do the work
-      
+* Currently working on
+** TODO [#AA] Getting emacs to work from life.org emacs subheading
+** TODO [#A] Setting up KMonad
+   :LOGBOOK:
+   CLOCK: [2021-02-13 Sat 11:11]
+   :END:
+     The layout I created yesterday is a mess and need a refactor and simplification
+     I now use cleaner basic version, but already miss ergonomics and effectiveness of previous hack.
+*** TODO Get emacs-kbd-mode guix package
+    :LOGBOOK:
+    CLOCK: [2021-02-12 Fri 17:31]--[2021-02-12 Fri 17:34] =>  0:03
+    :END:
+**** Steps to take
+***** Visit kbd-mode's git{lab,hub} page
+****** TODO Write ret/lucky-search-git-repo
+       :LOGBOOK:
+       CLOCK: [2021-02-12 Fri 17:34]--[2021-02-12 Fri 18:00] =>  0:26
+       :END:
+**** In a noret guix channel
+*** TODO 
+** TODO [#B] Configuring Emacs for that workflow:
+[[*Editing Git repository, interacting with Github in sessions][Editing Git repository, interacting with Github in sessions]]
+** TODO [#B] Setting up org-roam
+** TODO [#D] Creating data structure, macro and refactor brose-url.el with it (+ add Nyxt, and bunch of other definitions)
+*** Big problem, what is parts?
+**** Macro
+**** Data structure (like in guix)
+***** Default value
+***** Setters, getters
+* Overview
+  All timeful text we write belongs here
+  Except private stuff -- it is in private-life.org which doesn't exist (yet or never)
+** On top of mind
 * Configurations
 ** Emacs
-*** Overview
-**** How it works
-     
-** Window Managers
-*** Stumpwm
-*** EXWM
-*** Sway
-** Guix
-** Shell
-** KMonad -- like virtual QMK
-*** (defmacro) explained
-    
-*** Nirvana layout
+*** ret-emacs.org
+    :PROPERTIES:
+    :ID:       fb56955a-0683-4aa9-8ef7-b3a39ccb9ab7
+    :END:
+#+MACRO: export-date (eval (format-time-string "%F %R %z" (current-time)))
++ Created: 2021-02-03
++ Updated: *{{{export date}}}*
++ Emacs Version: {{{emacs-ver}}}
++ File history: [[https://github.com/UristMcKorobochka/dotfiles]]
 **** Overview
-     Created by Dan, co-creator of BEAKL
-     His latest publicily available creation as of <2021-01-29 Fri>
-**** pc100 -- full-size PC keyboard
-	#+begin_src kbd
-	  (defcfg
-	    input (device-file "/dev
-	    )
-	  (defsrc
-	    esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12        ssrq slck pause
-	    grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc  ins  home pgup  nlck kp/  kp*  kp-
-	    tab  q    w    e    r    t    y    u    i    o    p    [    ]    \     del  end  pgdn  kp7  kp8  kp9  kp+
-	    caps a    s    d    f    g    h    j    k    l    ;    '    ret                        kp4  kp5  kp6
-	    lsft z    x    c    v    b    n    m    ,    .    /    rsft                 up         kp1  kp2  kp3  kprt
-	    lctl lmet lalt           spc            ralt rmet cmp  rctl            left down rght  kp0  kp.
-	    )
+***** Canonical links to this document
+***** What is this
+The present document, referred to in the source code part as =prot-emacs.org=, contains the bulk of my configurations for GNU Emacs.
+It is designed using principles of "literate programming": a combination of ordinary language and inline code blocks.
+Emacs knows how to parse this file properly so as to evaluate only the Elisp ("Emacs Lisp") included herein.
+The rest is for humans to make sense of my additions and their underlying rationale.
 
-	  (deflayer base
-	    _    _    _    _    _    _    _    _    _    _    _    _    _          _    _    _
-	    _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
-	    _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
-	    _    _    _    _    _    _    _    _    _    _    _    _    _                          _    _    _
-	    _    _    _    _    _    _    _    _    _    _    _    _                    _          _    _    _    _
-	    _    _    _              _              _    _    _    _               _    _    _     _    _   
-	    )
+Literate programming allows us to be more expressive and deliberate.
+Not only can we use typography to its maximum potential (elaborate more), but may also employ techniques such as internal links between sections.
+This makes the final product much more useful for end users than, say a terse script.
 
-	  (deflayer symnum
-	    _    _    _    _    _    _    _    _    _    _    _    _    _          _    _    _
-	    _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
-	    _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
-	    _    _    _    _    _    _    _    _    _    _    _    _    _                          _    _    _
-	    _    _    _    _    _    _    _    _    _    _    _    _                    _          _    _    _    _
-	    _    _    _              _              _    _    _    _               _    _    _     _    _   
-	    )
+Each section provides information about the code it contains. In case you feel something is missing, I maintain a (*link* Frequently Asked Questions) section (when in doubt, or to offer feedback, suggestions, further comments, etc., do (*link* contact me).
 
-	  (deflayer weird
-	    _    _    _    _    _    _    _    _    _    _    _    _    _          _    _    _
-	    _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
-	    _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
-	    _    _    _    _    _    _    _    _    _    _    _    _    _                          _    _    _
-	    _    _    _    _    _    _    _    _    _    _    _    _                    _          _    _    _    _
-	    _    _    _              _              _    _    _    _               _    _    _     _    _   
-	    )
+In more practical terms, this document is written using =org-mode=. It contains all /package configurations/ for my Emacs setup.
+To actually work, it needs to be initialised from another file that only covers the absolute essentials.
 
-	  (deflayer champ
-	    _    _    _    _    _    _    _    _    _    _    _    _    _          _    _    _
-	    _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
-	    _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
-	    _    _    _    _    _    _    _    _    _    _    _    _    _                          _    _    _
-	    _    _    _    _    _    _    _    _    _    _    _    _                    _          _    _    _    _
-	    _    _    _              _              _    _    _    _               _    _    _     _    _   
+****** Contents of my init.el
+The =prot-emacs.org= is loaded from an other file, named =init.el= per the Emacs conventions.
+Mine is designed to just load the file with my configurations (i.e. the present document).
+The package management is done by Guix outside Emacs.
+Emacs loads the package autoloads from `load-path'
+
+#+include: init.el src emacs-lisp :tangle no
+
+******* The =early-init.el=
+#+include: early-init.el src emacs-lisp :tangle no
+
+****** About the source code version of this document
+In the =org-mode= version of this document, I make sure that the
+above-referenced code blocks have =:tangle no= Org property so they are not accidentally parsed by the actual setup and serve as mere examples.
+***** Writing style
+****** Avoid these phrases (with reasons)
+******* This section contains configurations that are needed
+Yes -- this is a section and it contains whatever it contains, configurations if not stated otherwise, that are needed if not stated otherwise.
+***** COPYING
+**** Skeleton
+If modular configuration system should exist -- it belongs here
+For now it's just more opinionated =better-defaults.el=, most essential and universal stuff about this config
+***** Rewrite .org version and update .el version of config on killing
+Maybe with that Rewrite step it's becames unnecesarily complicated to not just always tangle .org version on startup
+   #+begin_src emacs-lisp
+	  (use-package emacs
+	    :config
+	    (defun ret/rewrite-emacs-init-org ()
+	      "Rewrite ret-emacs.org separate file version of Emacs literate configuration with content of its subheadings in life.org."
+	      ;;cd hardpath
+	      (find-file "~/life.org")
+	      (let ((org-config-pos (org-find-entry-with-id "fb56955a-0683-4aa9-8ef7-b3a39ccb9ab7")))
+		(goto-char org-config-pos)
+		(org-copy-subtree)
+		(with-temp-file "~/.config/emacs/ret-emacs.org"
+		  (org-paste-subtree))))
+
+	    (defun ret/delete-emacs-init-el ()
+	      "Remove .el version of Emacs literate configuration if it exists"
+	      (let ((config "~/.config/emacs/ret-emacs.el"))
+		(when config
+		  (delete-file config))))
+
+	    (defun ret/update-literate-config ()
+	      "Create up-to-date Emacs .org and .el configuration files on exit"
+	      (ret/rewrite-emacs-init-org)
+	      (ret/delete-emacs-init-el))
+	    :hook (kill-emacs . ret/update-literate-config))
+
+   #+end_src
+
+   #+RESULTS:
+   | org-babel-remove-temporary-directory | ret/update-literate-config |
+
+***** Highly accessible themes (modus and redscale)
+
+****** Redscale theme
+I use computer (Emacs mainly) 2 hours before sleep and between night cores/naps
+The goal is to not disrupt melatonin production with light coming from monitor and other sources.
+It's known that in moderate amounts completely red light are tolerable, still allows for enough melatonin production 
+So, I use red filtering glasses and software at 100K setting
+Filtering is so strong, that I see black instead of blue, or any color any than red
+Therefore, I need this theme to use only shades of red
+I intend it to be automatically-created variation of =modus-vivendi= theme
+It would leverage it's unmatched configurability and is possible because of it.
+
+****** Modus-vivendi theme
+I like dark themes!
+#+begin_src emacs-lisp
+  (use-package emacs
+    :config
+    (load-theme 'modus-vivendi t)
+    )
+   #+end_src
+
+   #+RESULTS:
+   : t
+
+***** Remove unused graphical elements (GTK widgets)
+   + menu, tool bar -- they take space and I don't consult or use them, because I know my workflow well and it's keyboard-driven
+   + scroll bar -- Xah argues, that it's a good indicator for relative buffer position
+     He is right.
+     But there are more efficient methods of navigation, I believe (like [[View Points]] [[Search and pick tools]]), which completely replace and improve in nigh every way this *primitive* method.
+     That's Emacs! I can believe there's better ways! Also scroll bars take place X)
+   #+begin_src emacs-lisp
+     (use-package emacs
+       :config
+       (menu-bar-mode -1)
+       (tool-bar-mode -1)
+       (scroll-bar-mode -1)
+       (horizontal-scroll-bar-mode -1))
+   #+end_src
+***** Switch to life.org buffer at Emacs startup (which is visited after [[*Startup. General options][Org startup]]
+      #+begin_src emacs-lisp
+	(use-package emacs
+	  :custom
+	  (initial-buffer-choice "life.org"))
+      #+end_src
+
+      #+RESULTS:
+
+***** Improve help-commands (helpful, elisp-demos)
+      #+begin_src emacs-lisp
+	(use-package helpful
+	  :commands (helpful-callable helpful-variable helpful-key helpful-at-point helpful-function helpful-command)
+	  :bind
+	  (("C-h f" . helpful-callable)
+	   ("C-h v" . helpful-variable)
+	   ("C-h k" . helpful-key)
+	   ("C-h F" . helpful-function)
+	   ("C-h C" . helpful-command)
+	   ("C-c C-d" . helpful-at-point))
 	  )
-	#+end_src
+
+	(use-package elisp-demos
+	  :config
+	  (advice-add 'helpful-update :after #'elisp-demos-advice-helpful-update))
+      #+end_src
+
+      #+RESULTS:
+      : t
+
+***** Suggest key combinations (which-key)
+***** Create mnemonic leader-keys (hydra)
+***** Ergonomic modal editing for Emacs (boon)
+***** Support Nyxt browser (as default)
+      #+begin_src emacs-lisp
+	(use-package browse-url
+	  :commands browse-url-nyxt
+	  :init
+	  (defun browse-url-nyxt (url &optional new-window)
+	    "Ask the Nyxt WWW Browser to load URL.
+	Default to the URL around or before point. The strings in variable
+	`browse-url-nyxt-arguments' are also passed to Nyxt.
+
+	When called interactively, if variable `browse-url-new-window-flag' is
+	non-nil, load the document in a new Nyxt window, otherwise use a
+	random existing one.  A non-nil interactive prefix argument reverses
+	the effect of `browse-url-new-window-flag'.
+
+	If `browse-url-nyxt-new-window-is-buffer' is non-nil, then whenever a
+	document would otherwise be loaded in a new window, it is loaded in a
+	new tab in an existing window instead.
+
+	When called non-interactively, optional second argument NEW-WINDOW is
+	used instead of `browse-url-new-window-flag'."
+	    (interactive (browse-url-interactive-arg "URL: "))
+	    (let* ((url (browse-url-encode-url url))
+		   (process-environment (browse-url-process-environment))
+		   (process (apply 'start-process
+				   (concat "nyxt " url)
+				   nil
+				   browse-url-nyxt-program
+				   ;;TODO make this work (how to launch make-window (or window-make;) usikg "-e"?)
+				   ;;(if (and (not (or (browse-url-maybe-new-window new-window)
+				   ;;		     (browse-url-nyxt-new-window-is-buffer)))
+				   ;;	    (browse-url-new-window-flag)))
+				   (append
+				    browse-url-nyxt-arguments
+				    (list url)))))
+	      (set-process-sentinel process
+				    `(lambda (process change)
+				       (browse-url-nyxt-sentinel process ,url)))))
+
+	  (function-put 'browse-url-nyxt 'browse-url-browser-kind 'external)
+
+	  (defun browse-url-nyxt-sentinel (process url)
+	  "Handle a change to the process communicating with Nyxt."
+	  (or (eq (process-exit-status process) 0)
+	      (let* ((process-environment (browse-url-process-environment)))
+		;; Nyxt is not running - start it
+		(message "Starting %s..." browse-url-nyxt-program)
+		(apply 'start-process (concat "nyxt " url) nil
+		       browse-url-nyxt-program
+		       (append browse-url-nyxt-startup-arguments (list url))))))
+
+	  (defcustom browse-url-nyxt-program
+	    (let ((candidates '("nyxt")))
+	      (while (and candidates (not (executable-find (car candidates))))
+		(setq candidates (cdr candidates)))
+	      (or (car candidates) "nyxt"))
+	    "The name by which to invoke the Nyxt browser."
+	    :type 'string
+	    :version "28.1")
+
+	  (defcustom browse-url-nyxt-arguments nil
+	    "A list of strings to pass to Nyxt as arguments."
+	    :type '(repeat (string :tag "Argument"))
+	    :version "28.1")
+	  :custom
+	  (browse-url-browser-function 'browse-url-nyxt)
+	  )
+      #+end_src
+
+      #+RESULTS:
+      : browse-url-nyxt-arguments
+**** Org
+***** Startup. General options
+      :PROPERTIES:
+      :ID:       66dd3127-a908-4a1c-abea-334719266afe
+      :END:
+     #+begin_src emacs-lisp
+       (use-package org
+	 :config
+	 ;;; Startup
+	 (find-file "~/life.org"))
+     #+end_src
+
+     #+RESULTS:
+     : t
+
+**** Languages support
+***** Kbd (KMonad DSL)
+      This package can be better >,<
+      #+begin_src emacs-lisp
+	(use-package kbd)
+      #+end_src
+***** Lisp
+****** Basic parentheses dealing
+******* show-paren-mode
+#+begin_src emacs-lisp
+  (use-package paren
+  :config (show-paren-mode))
+#+end_src
+
+#+RESULTS:
+: t
+
+*** Custom functions (named ret/foo-bar)
+***** 
+***** ret/visit-package-home
+      
+      #+begin_src emacs-lisp	(defun ret/visit-package-home (package-name)
+	(defun ret/goto-package-home-page (package-name)
+	  "Dirty, ugly, ignorant solution to but a part of a more general problem (copies straight.el's goto-package-website)"
+	  (interactive)
+	  (guix-eval "(use-modules (gnu packages emacs-xyz) (guix packages))")
+	  ((guix-eval (format "(package-home-page emacs-%s)" package-name))
+	  )
+
+** Guix
+** Window managers
+*** StumpWM
+** KMonad 
+* People, projects, patterns
+  From c2.wiki.
+  People work on projects to generate patterns.
+  What is a project for pattern beside its workflow? The result.
+** People
+*** Mom
+*** Dad
+*** Sister, sadistic
+*** Grandpa1
+*** Grandpa2
+*** Grandma1
+*** Grandma2
+*** sekvanto
+*** tntz
+*** Igor
+*** me
+*** cat
+*** School teachers
+I have little to do with them (school in general), one category is enough
+** Projects
+*** Information Mycelium -- peer learning and sharing -- NumberPi (=NumberThree)
+**** Overview
+  We communicate and process information using computers.
+  We want to improve
+  We believe each can improve from participating in this (small, as of now) community
+  It can evolve, it can revolutionize, experiments can be done here.
+  
+  Currently we use =Telegram= channel for pinging, sending links, asking for thoughts, chatting
+  and =Github= private repository for storing what we work on (except carefully written telegram messages)
+  
+**** Members
+     sekvanto, tntz, Igor, me
+**** Workflow
+***** Editing Git repository, interacting with Github in sessions     
+**** Subprojects
      
+*** Second brain
+**** Principles
+***** Distributed network of structures (brains)
+**** Concepts
+***** [[*Topic map][Topic map]] -- linking subjects
+***** [[*ZigZag][ZigZag]] -- resulting graph representation
+***** [[Xanadu]] -- transclusion of text, pointers to text elements
+***** [[Evergreen Notes]] -- general principles of notewritting
+*** Meditation
+    Currently alone
+*** Family
+*** School
+*** ZigZag
+*** Evergreen Notes
+**** Wordy
+[[*Thoughts][Thoughts]] will later or sooner become unmanaedgable if I won't start using... org-roam?
+Also i don't have a keybindings for linking set up and just using M-x [command-name] xD
+It is a high priority to set up *something* anyway...
+** Patterns
+*** Work pattern
+**** Work session
+**** Questions on why we let this pattern emerge in our life
+***** Why divide work in sessions
+***** What it is about?
+*** Information Mycelium
+*** Topic map
+**** Concepts
+***** Topic
+***** Assosiation
+***** Occurence
+**** Usage
+***** Adding a node to a Topic map
+****** Topic
+****** Association
+****** Occurence
+*** Project structure
+    All projects boil down to tasks
+    There are unlimited configurations of tasks -- that's why there are unlimited number of projects
+    But all project share some structure.
+    We observe it in [[*Projects][Projects]] tree of this forest ;)
+
+    Structure reveals itself when project breaks into subprojects
+    Subprojects of two different parent projects can belong together to a third parent project.
+    That proves that complete freedom in hyperlinking and not strict, non-emergent hierarchy is natural for a projec
+*** Names
+**** Real
+**** Nicknames
+* Posts, articles
+** Why Federated Wiki linking is better than Hyperbole's, Org mode's
+*** TODO what qualities they have to compare
+* Thoughts
+** What is configuration? How to write them?
+   Configuration is a kind of program
+   One of major parts of configuration is =variable-setting=
+   Information about variables itself can be find, usually
+   Motivation, why they are there -- that is most confusing about configuration
+*** Write about motivation behind configuration
+*** Observation: it is not obvious that configurations should kave conscise explanation of 'why'
+**** Possible reasons
+***** Pieces are short and easy to write
+      + same reason: why full-size program lacks documentation
+      The less compeling it to write docu for config
+      + config can be quite slim and =effect/size= ratio is hundredfold more without any explanation!
+      + lack of editor support for literate programming
+	In TeX and Emacs+Org environments that is not a case! [{(emacs rocks)}]
+** Nicknames are better than names
+** Explicit imaginary story is easier to remember than plain picture
+** Words are great at inducing imagination   
+** The description of a project is an overview -- wooow
+   shouldn't be under workflow, result -- in separate heading
+* Journal
+** <2021-02-13 Sat>
+*** Setting up KMonad
+**** Get it manually in lisp-community 
+** <2021-02-10 Wed>
+   After 3 days of non-stop lurking -- continuing to lurk.
+   PROJECT will wait until I learn doing things on other things.
+   Expecting to touch on it in 2-3 months realistically.
+   
 * Archive
-** Overview
+** Thoughts
+*** I wouldn't -- Why I wouldn't prefer having explicit link automatically added to file when implicit link is created (make state reproducible both from file and external database?)
+******** What power explicit link doesn't kave over implicit link? What is the difference from technical POV?
+********* Implicit -- XML, Explicit -- unmaintainable shit
+** Workings
+*** Realising the way to display *many views* on the *same buffer*
+*** Steps to take
+**** Read about buffers in the manual [[info:emacs#Indirect Buffers][info:emacs#Indirect Buffers]]
+Reading the title was sufficient
+The `clone-indirect-buffer' does what i want
+     :LOGBOOK:
+     CLOCK: [2021-02-12 Fri 18:00]--[2021-02-12 Fri 18:05] =>  0:05
+     :END:
+*** I need one state -- I don't need a copy
+    
+
+

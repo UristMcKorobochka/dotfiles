@@ -1,0 +1,164 @@
+(defcfg
+  input (device-file "/dev/input/by-id/usb-Razer_Razer_BlackWidow_Ultimate_2016-event-kbd")
+  output (uinput-sink "KMonad_razer")
+  allow-cmd true
+  )
+
+(defsrc
+    esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12        ssrq slck pause
+    grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc  ins  home pgup  nlck kp/  kp*  kp-
+    tab  q    w    e    r    t    y    u    i    o    p    [    ]    \     del  end  pgdn  kp7  kp8  kp9  kp+
+    caps a    s    d    f    g    h    j    k    l    ;    '    ret                        kp4  kp5  kp6
+    lsft z    x    c    v    b    n    m    ,    .    /    rsft                 up         kp1  kp2  kp3  kprt
+    lctl lmet lalt           spc            ralt cmp  rctl            left down rght  kp0  kp.
+    )
+
+#| Easyblock (E) -- the easiest to type and Homeblock (h) -- second easiest
+
+(deflayer layer
+    _    _    _    _    _    _    _    _    _    _    _    _    _          _    _    _
+    _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
+    _    _    E    E    h    _    _    h    E    E    _    _    _    _     _    _    _     _    _    _    _
+    _    _    E    E    E    _    _    E    E    E    _    _    _                          _    _    _
+    _    _    h    h    E    _    _    E    h    h    _    _                    _          _    _    _    _
+    _    _    _              _              _    _    _                    _    _    _     _    _
+)
+
+|#
+
+#|
+1. keys
+    sft ctl                 ctl sft
+bsp _   _   alt         alt _   _
++I find this ctl and sft positions easiest to press together (2-combo)
++alt in a row would make it even easier to combo, but there are more important keys to place here (unfortunately there is no multi-tap-hold button yet, it will solve)
++
+
+|#
+(deflayer nirvana
+    @es  @f1   @f2  @f3  @f4  @f5  @f6  @f7  @f8  @f9  @f1  @f11 @f1       ssrq slck pause
+    @gr  @1   @2   @3   @4   @5   @6   @7   @8   @9   @0   @-   @=   @bs   ins  home pgup   nlck kp/  kp*  kp-
+    @ta  @q   @pte @u   @o   @k   @v   @m   @r   @f   @j   @[{  @]}  @\    del  end  pgdn   kp7  kp8  kp9  kp+ 
+    @,es @hs  @ic  @eta @are @'-  @d;  @t/  @nD  @sc  @cs  @MxE @\                          kp4  kp5  kp6
+    @ls  @z   @yS  @bsa @.,  @`M! @w#  @g~/ @lal @bop @xcp @rs                   up         kp1  kp2  kp3  kprt
+    @chu @lmh @la           @sp               @ra  @cm  @rc              left down rght  kp0  kp.
+    )
+
+(deflayer test
+    _    _    _    _    _    _    _    _    _    _    _    _    _          _    _    _
+    _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
+    _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
+    _    @test  _    _    _    _    _    _    _    _    _    _    _                          _    _    _
+    _    _    _    _    _    _    _    _    _    _    _    _                    _          _    _    _    _
+    _    _    _              _              _    _    _                    _    _    _     _    _
+)
+
+(defalias
+test (layer-toggle test)
+escfu (around-next esc)  
+pte (tap-hold-next-release 120 p #( @escfu lctl ))
+chu (tap-hold-next-release 120 ! esc)
+es (tap-hold-next-release 120 esc k)
+gr (tap-hold-next-release 120 grv k)
+ta (tap-hold-next-release 120 tab k)
+bsa (tap-hold-next-release 120 bspc lalt)
+bsm (tap-hold-next-release 120 bspc rmet)
+ls (tap-hold-next-release 120 lsft lsft)
+lc (tap-hold-next-release 120 lctl lctl) 
+lmh (tap-hold-next-release 120 lmet lmet) 
+la (tap-hold-next-release 120 lalt lalt) 
+sp (tap-hold-next-release 120 spc spc) 
+ra (tap-hold-next-release 120 ralt ralt) 
+cm (tap-hold-next-release 120 cmp k)
+rc (tap-hold-next-release 120 rctl rctl) 
+rs (tap-hold-next-release 120 rsft rsft) 
+re (tap-hold-next-release 120 ret ret) 
+`M! (tap-hold-next-release 120 ` A-!)
+
+\ (tap-hold-next-release 120 \ k)
+bs (tap-hold-next-release 120 bspc bspc) 
+f1 (tap-hold-next-release 120 f1 k)
+f2 (tap-hold-next-release 120 f2 k)
+f3 (tap-hold-next-release 120 f3 k)
+f4 (tap-hold-next-release 120 f4 k)
+f5 (tap-hold-next-release 120 f5 k)
+f6 (tap-hold-next-release 120 f6 k)
+f7 (tap-hold-next-release 120 f7 k)
+f8 (tap-hold-next-release 120 f8 k)
+f9 (tap-hold-next-release 120 f9 k)
+f10 (tap-hold-next-release 120 f10 k)
+f11 (tap-hold-next-release 120 f11 k)
+f12 (tap-hold-next-release 120 f12 k)
+1 (tap-hold-next-release 120 1 k)
+2 (tap-hold-next-release 120 2 k)
+3 (tap-hold-next-release 120 3 k)
+4 (tap-hold-next-release 120 4 k)
+5 (tap-hold-next-release 120 5 k)
+6 (tap-hold-next-release 120 6 k)
+7 (tap-hold-next-release 120 7 k)
+8 (tap-hold-next-release 120 8 k)
+9 (tap-hold-next-release 120 9 k)
+0 (tap-hold-next-release 120 0 k)
+- (tap-hold-next-release 120 - k)
+= (tap-hold-next-release 120 = k)
+q (tap-hold-next-release 120 q k)
+p (tap-hold-next-release 120 p k )
+u (tap-hold-next-release 120 u k)
+o (tap-hold-next-release 120 o k)
+k (tap-hold-next-release 120 k k)
+v (tap-hold-next-release 120 v k)
+m (tap-hold-next-release 120 m k)
+r (tap-hold-next-release 120 r k)
+f (tap-hold-next-release 120 f k)
+j (tap-hold-next-release 120 j k)
+[{ (tap-hold-next-release 120 [ {)
+]} (tap-hold-next-release 120 ] })
+hs (tap-hold-next-release 120 h lsft)
+ic (tap-hold-next-release 120 i lctl)
+eta (tap-hold-next-release 120 e tab)
+are (tap-hold-next-release 120 a ret)
+'- (tap-hold-next-release 120 ' - )
+d; (tap-hold-next-release 120 d ;)
+t/ (tap-hold-next-release 120 t /)
+nD (tap-hold-next-release 120 n @ )
+sc (tap-hold-next-release 120 s rctl)
+cs (tap-hold-next-release 120 c rsft)
+MxE (tap-hold-next-release 120 A-x A-:)
+z (tap-hold-next-release 120 z k)
+yS (tap-hold-next-release 120 y C-t) ;;stump prefix key (better remap?)
+,es (tap-hold-next-release 120 , esc)
+., (tap-hold-next-release 120 . ,)
+DM! (tap-hold-next-release 120 @ A-!)
+w# (tap-hold-next-release 120 w #)
+g~/ (tap-hold-next-release 120 g #(~ /))
+lal (tap-hold-next-release 120 l ralt)
+bop (tap-hold-next-release 120 b \()
+xcp (tap-hold-next-release 120 x \))
+)
+
+(deflayer numbers
+    _    _    _    _    _    _    _    _    _    _    _    _    _          _    _    _
+    _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
+    _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
+    _    _    _    _    _    _    _    _    _    _    _    _    _                          _    _    _
+    _    _    _    _    _    _    _    _    _    _    _    _                    _          _    _    _    _
+    _    _    _              _              _    _    _                    _    _    _     _    _
+)
+
+(deflayer symbols
+    _    _    _    _    _    _    _    _    _    _    _    _    _          _    _    _
+    _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
+    _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
+    _    _    _    _    _    _    _    _    _    _    _    _    _                          _    _    _
+    _    _    _    _    _    _    _    _    _    _    _    _                    _          _    _    _    _
+    _    _    _              _              _    _    _                    _    _    _     _    _
+)
+
+(deflayer leader
+    _    _    _    _    _    _    _    _    _    _    _    _    _          _    _    _
+    _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
+    _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
+    _    _    _    _    _    _    _    _    _    _    _    _    _                          _    _    _
+    _    _    _    _    _    _    _    _    _    _    _    _                    _          _    _    _    _
+    _    _    _              _              _    _    _                    _    _    _     _    _
+)
