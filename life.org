@@ -1,23 +1,4 @@
 * Currently working on
-** TODO [#AA] Getting emacs to work from life.org emacs subheading
-** TODO [#A] Setting up KMonad
-   :LOGBOOK:
-   CLOCK: [2021-02-13 Sat 11:11]
-   :END:
-     The layout I created yesterday is a mess and need a refactor and simplification
-     I now use cleaner basic version, but already miss ergonomics and effectiveness of previous hack.
-*** TODO Get emacs-kbd-mode guix package
-    :LOGBOOK:
-    CLOCK: [2021-02-12 Fri 17:31]--[2021-02-12 Fri 17:34] =>  0:03
-    :END:
-**** Steps to take
-***** Visit kbd-mode's git{lab,hub} page
-****** TODO Write ret/lucky-search-git-repo
-       :LOGBOOK:
-       CLOCK: [2021-02-12 Fri 17:34]--[2021-02-12 Fri 18:00] =>  0:26
-       :END:
-**** In a noret guix channel
-*** TODO 
 ** TODO [#B] Configuring Emacs for that workflow:
 [[*Editing Git repository, interacting with Github in sessions][Editing Git repository, interacting with Github in sessions]]
 ** TODO [#B] Setting up org-roam
