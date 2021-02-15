@@ -1,0 +1,113 @@
+(defcfg
+  input (device-file "/dev/input/by-path/platform-i8042-serio-0-event-kbd")
+  output (uinput-sink "KMonad_sm")
+  allow-cmd true
+  )
+
+
+(defsrc
+    esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12        ssrq slck pause
+    grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc  ins  home pgup  nlck kp/  kp*  kp-
+    tab  q    w    e    r    t    y    u    i    o    p    [    ]    \     del  end  pgdn  kp7  kp8  kp9  kp+
+    caps a    s    d    f    g    h    j    k    l    ;    '    ret                        kp4  kp5  kp6
+    lsft z    x    c    v    b    n    m    ,    .    /    rsft                 up         kp1  kp2  kp3  kprt
+    lctl lmet lalt           spc            ralt cmp  rctl            left down rght  kp0  kp.
+    )
+
+(deflayer nirvana
+    @esc  @f1   @f2   @f3   @f4   @f5   @f6   @f7   @f8   @f9   @f10  @f11  @f12        
+    @grv  @1    @2    @3    @4    @5    @6    @7    @8    @9    @0    @-    @=    @bspc 
+    @tab  @q    @p    @u    @o    @k    @v    @m    @r    @f    @j    @[    @]    @\     
+    @caps @h    @i    @e    @a    @'    @d    @t    @n    @s    @c    @\    @ret
+    @lsft @z    @y    @,    @.    @;    @w    @g    @l    @b    @x    @rsft
+    @lctl @lmet @lalt           @spc            @ralt @cmp  @rctl
+    )
+
+(defalias
+esc (tap-hold-next-release 120 esc k)
+f1 (tap-hold-next-release 120 f1 k)
+f2 (tap-hold-next-release 120 f2 k)
+f3 (tap-hold-next-release 120 f3 k)
+f4 (tap-hold-next-release 120 f4 k)
+f5 (tap-hold-next-release 120 f5 k)
+f6 (tap-hold-next-release 120 f6 k)
+f7 (tap-hold-next-release 120 f7 k)
+f8 (tap-hold-next-release 120 f8 k)
+f9 (tap-hold-next-release 120 f9 k)
+f10 (tap-hold-next-release 120 f10 k)
+f11 (tap-hold-next-release 120 f11 k)
+f12 (tap-hold-next-release 120 f12 k)
+grv (tap-hold-next-release 120 grv k)
+1 (tap-hold-next-release 120 1 k)
+2 (tap-hold-next-release 120 2 k)
+3 (tap-hold-next-release 120 3 k)
+4 (tap-hold-next-release 120 4 k)
+5 (tap-hold-next-release 120 5 k)
+6 (tap-hold-next-release 120 6 k)
+7 (tap-hold-next-release 120 7 k)
+8 (tap-hold-next-release 120 8 k)
+9 (tap-hold-next-release 120 9 k)
+0 (tap-hold-next-release 120 0 k)
+- (tap-hold-next-release 120 - k)
+= (tap-hold-next-release 120 = k)
+tab (tap-hold-next-release 120 tab k)
+caps (tap-hold-next-release 120 caps k)
+lsft (tap-hold-next-release 120 lsft k)
+lctl (tap-hold-next-release 120 lctl k)
+lmet (tap-hold-next-release 120 lmet k)
+lalt (tap-hold-next-release 120 lalt k)
+spc (tap-hold-next-release 120 spc k)
+ralt (tap-hold-next-release 120 ralt k)
+cmp (tap-hold-next-release 120 cmp k)
+rctl (tap-hold-next-release 120 rctl k)
+rsft (tap-hold-next-release 120 rsft k)
+ret (tap-hold-next-release 120 ret k)
+\ (tap-hold-next-release 120 \ k)
+bspc (tap-hold-next-release 120 bspc k)
+q (tap-hold-next-release 120 q k)
+p (tap-hold-next-release 120 p k)
+u (tap-hold-next-release 120 u k)
+o (tap-hold-next-release 120 o k)
+k (tap-hold-next-release 120 k k)
+v (tap-hold-next-release 120 v k)
+m (tap-hold-next-release 120 m k)
+r (tap-hold-next-release 120 r k)
+f (tap-hold-next-release 120 f k)
+j (tap-hold-next-release 120 j k)
+[ (tap-hold-next-release 120 [ k)
+] (tap-hold-next-release 120 ] k)
+h (tap-hold-next-release 120 h k)
+i (tap-hold-next-release 120 i k)
+e (tap-hold-next-release 120 e k)
+a (tap-hold-next-release 120 a k)
+' (tap-hold-next-release 120 ' k)
+d (tap-hold-next-release 120 d k)
+t (tap-hold-next-release 120 t k)
+n (tap-hold-next-release 120 n k)
+s (tap-hold-next-release 120 s k)
+c (tap-hold-next-release 120 c k)
+z (tap-hold-next-release 120 z k)
+y (tap-hold-next-release 120 y k)
+, (tap-hold-next-release 120 , k)
+. (tap-hold-next-release 120 . k)
+; (tap-hold-next-release 120 ; k)
+w (tap-hold-next-release 120 w k)
+g (tap-hold-next-release 120 g k)
+l (tap-hold-next-release 120 l k)
+b (tap-hold-next-release 120 b k)
+x (tap-hold-next-release 120 x k)
+)
+
+#| Easyblock (E) -- the easiest to type and Homeblock (h) -- second easiest
+
+(deflayer layer
+    _    _    _    _    _    _    _    _    _    _    _    _    _          _    _    _
+    _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
+    _    _    E    E    h    _    _    h    E    E    _    _    _    _     _    _    _     _    _    _    _
+    _    _    E    E    E    _    _    E    E    E    _    _    _                          _    _    _
+    _    _    h    h    E    _    _    E    h    h    _    _                    _          _    _    _    _
+    _    _    _              _              _    _    _                    _    _    _     _    _
+)
+|#
+
+
